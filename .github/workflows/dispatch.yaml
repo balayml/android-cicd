@@ -15,9 +15,7 @@ on:
         required: true
         type: choice
         options: 
-        - balayml/android-blue
-
-
+        - balayml/android-blue     
 
 
 
@@ -27,3 +25,5 @@ jobs:
     with:
       reponame: ${{ inputs.reponame }}
       checkout: ${{ inputs.checkout }}
+    secrets: ${{ secrets.CICD_GITHUB_TOKEN }}
+
