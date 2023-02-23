@@ -25,5 +25,6 @@ jobs:
     with:
       reponame: ${{ inputs.reponame }}
       checkout: ${{ inputs.checkout }}
-    secrets: ${{ secrets.CICD_GITHUB_TOKEN }}
+    secrets: 
+      token: ${{ secrets.CICD_GITHUB_TOKEN }}
 

@@ -33,6 +33,7 @@ jobs:
           repository: ${{ inputs.checkout }}
           ref: dev
           fetch-depth: 0
+          token: ${{ secrets.token}}
 
 
 
