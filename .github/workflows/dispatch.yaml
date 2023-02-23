@@ -1,0 +1,16 @@
+name: dispatch workflow
+
+on:  
+  workflow_dispatch:
+    inputs:
+      reponame:
+        description: dispatch workflow
+        required: true
+        type: string
+
+
+
+
+jobs:
+  call-A:
+    uses: balayml/android-cicd/.github/workflows/build.yaml@main
