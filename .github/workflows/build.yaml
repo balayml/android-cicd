@@ -6,6 +6,9 @@ on:
       reponame:
         required: true
         type: string
+      checkout:
+        required: true
+        type: string
 
 
 
@@ -22,6 +25,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          repository: ${{ inputs.checkout }}
 
 
       - name: Git config 
