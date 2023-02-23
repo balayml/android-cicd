@@ -6,9 +6,7 @@ on:
       reponame:
         required: true
         type: string
-    secrets:
-      token:
-        required: false
+
 
 env:
   GITHUB_TOKEN: ${{ secrets.token }}  
