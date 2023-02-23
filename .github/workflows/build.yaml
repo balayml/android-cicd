@@ -8,15 +8,11 @@ on:
         type: string
 
 
-env:
-  GITHUB_TOKEN: ${{ secrets.token }}  
-  GIT_BRANCH_DEV: 'dev'
-  GIT_REPO: 'yml-org/poc-amway-android-blue'
-  GITHUB_USERNAME: 'balayml'
+
 
 jobs:
-  blue-deploy-on-dev:
-    name: blue-deploy-on-dev
+  build:
+    name: build
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -26,50 +22,7 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.token }}
-
-
-      - name: Git config 
-        run: |          
-          git config user.name "amway-cicd"
-          git config user.email "cicd@amway.com"
-          echo "current git branch $(git rev-parse --abbrev-ref HEAD)"
-          echo "current git user $(git config user.name)"      
-
-      - name: Set Up JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu'
-          java-version: '11'
-
-      - name: Set gradle permissions 
-        run: | 
-          touch ${GITHUB_WORKSPACE}/local.properties
-          chmod +x ./gradlew
-          ./gradlew -v
-          ./gradlew tasks
-
-
-      - name: Set UTF-8 environment variable
-        run: |
-          export LC_ALL=en_US.UTF-8
-          export LANG=en_US.UTF-8
-
-      - name: Setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '2.7.2'
 
 
 
-      # - name: Fastlane 
-      #   uses: maierj/fastlane-action@v2.2.0
-      #   with:
-      #     lane: 'dev'
-      # - name: Upload build artifacts
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: assets-blue
-      #     path: ${{ github.workspace }}/app/build/outputs/apk/debug/app-debug.apk
+   
