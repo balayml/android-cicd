@@ -14,3 +14,5 @@ on:
 jobs:
   call-A:
     uses: balayml/android-cicd/.github/workflows/build.yaml@main
+    with:
+      reponame: Bala
