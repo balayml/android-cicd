@@ -6,7 +6,17 @@ on:
       reponame:
         description: dispatch workflow
         required: true
-        type: string
+        type: choice
+        options: 
+        - Blue
+
+      checkout:
+        description: checkout repo
+        required: true
+        type: choice
+        options: 
+        - balayml/android-blue
+
 
 
 
@@ -15,4 +25,5 @@ jobs:
   call-A:
     uses: balayml/android-cicd/.github/workflows/build.yaml@main
     with:
-      reponame: Bala
+      reponame: ${{ inputs.reponame }}
+      checkout: ${{ inputs.checkout }}
